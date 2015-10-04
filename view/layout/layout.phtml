@@ -34,7 +34,7 @@
 
 				->appendFile($this->basePath($themePath . 'js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js'))
 
-				->appendFile($this->basePath($themePath . 'js/plugins/ibutton/jquery.ibutton.js'))
+				//->appendFile($this->basePath($themePath . 'js/plugins/ibutton/jquery.ibutton.js'))
 
 				->appendFile($this->basePath($themePath . 'js/plugins/select2/select2.min.js'))
 
@@ -59,7 +59,7 @@
 
 				->appendFile($this->basePath($themePath . 'js/plugins/fullcalendar/fullcalendar.min.js'))
 
-				->appendFile($this->basePath($themePath . "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"))
+				->appendFile(("https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"))
 
 				->appendFile($this->basePath($themePath . 'js/plugins/datatables/jquery.dataTables.min.js'))
 
@@ -124,7 +124,7 @@
 					              ->menu()
 					              //->setMinDepth(0)
 					              //->setMaxDepth(0)
-					              ->setUlClass('nav navbar-nav')
+					              ->setUlClass('nav navbar-nav dropdown-menu')
 					    	;
 					    ?>
 					</div> 
@@ -139,7 +139,8 @@
 			              ->menu()
 			              //->setMinDepth(0)
 			              //->setMaxDepth(0)
-			              //->setUlClass('nav navbar-nav')
+			              ->setUlClass('page-navigation')
+			              ->se
 			    	;
 			    ?>
 			</div>
