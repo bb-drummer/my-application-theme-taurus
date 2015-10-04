@@ -6,19 +6,18 @@ $itemActive = $this->container->getPages();
 foreach ($this->container as $item) {
 	if ($item->isActive(true)) {
 		$itemActive = $item->getPages();
-
-		$parent = $item->getParent();
 		$html = '<ul class="'.$ulClass.'">' . PHP_EOL;
 		$html .= '<li class="'.$activeClass.'">';
-		$html .= '<a href="'.$parent->getHref().'">' . PHP_EOL .
-			($parent->get('icon') ? '<span class="icon-'.$parent->get('icon').'"></span> ' : '' ) . PHP_EOL .
-			$parent->getLabel().
+		$html .= '<a href="'.$item->getHref().'">' . PHP_EOL .
+			($item->get('icon') ? '<span class="icon-'.$item->get('icon').'"></span> ' : '' ) . PHP_EOL .
+			$item->getLabel().
 		'</a>' . PHP_EOL;
 		$html .= '</li>' . PHP_EOL;
 		$html .= '</ul>' . PHP_EOL;
-		
+		break;
 	}
 }
+echo $html;
 
 $html = '<ul class="'.$ulClass.'">' . PHP_EOL;
 foreach ($itemActive as $page):
@@ -55,5 +54,4 @@ foreach ($itemActive as $page):
 	endif;
 endforeach;
 $html .= '</ul>' . PHP_EOL;
-
 echo $html;
