@@ -1,33 +1,33 @@
 <?php echo $this->doctype(); ?>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <?php echo $this->headTitle('[BB] '. $this->translate('MyApplication'))->setSeparator(' - ')->setAutoEscape(false) ?>
-        <?php echo $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-        ?>
-        <!-- styles -->
-        <?php 
-        	$themePath = "assets/themes/taurus/";
-        	$this->headLink(array(
-        			'rel' => 'shortcut icon', 
-        			'type' => 'image/vnd.microsoft.icon', 
-        			'href' => $this->basePath($themePath . 'img/favicon.ico')
-     			))
-				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'));
-        	echo $this->headLink();
+	<head>
+		<meta charset="utf-8" />
+		<?php echo $this->headTitle('[BB] '. $this->translate('MyApplication'))->setSeparator(' - ')->setAutoEscape(false) ?>
+		<?php echo $this->headMeta()
+			->appendName('viewport', 'width=device-width, initial-scale=1.0')
+			->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
 		?>
-        <!-- scripts -->
-        <?php 
-        	$this->headScript()
+		<!-- styles -->
+		<?php 
+			$themePath = "assets/themes/taurus/";
+			$this->headLink(array(
+					'rel' => 'shortcut icon', 
+					'type' => 'image/vnd.microsoft.icon', 
+					'href' => $this->basePath($themePath . 'img/favicon.ico')
+	 			))
+				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'));
+			echo $this->headLink();
+		?>
+		<!-- scripts -->
+		<?php 
+			$this->headScript()
 				->appendFile($this->basePath($themePath . 'js/plugins/jquery/jquery.min.js'))
 				->appendFile($this->basePath($themePath . 'js/plugins/jquery/jquery-ui.min.js'))
 				->appendFile($this->basePath($themePath . 'js/plugins/jquery/jquery-migrate.min.js'))
-				->appendFile($this->basePath($themePath . 'js/plugins/jquery/globalize.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins/jquery/globalize.js'))	
 				->appendFile($this->basePath($themePath . 'js/plugins/bootstrap/bootstrap.min.js'))
  
-				->appendFile($this->basePath($themePath . 'js/plugins.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins.js'))	
 				->appendFile($this->basePath($themePath . 'js/actions.js')) 
 
 				->appendFile($this->basePath($themePath . 'js/plugins/uniform/jquery.uniform.min.js'))
@@ -45,7 +45,7 @@
 				->appendFile($this->basePath($themePath . 'js/plugins/noty/jquery.noty.js'))
 				->appendFile($this->basePath($themePath . 'js/plugins/noty/layouts/topCenter.js'))
 				->appendFile($this->basePath($themePath . 'js/plugins/noty/layouts/topLeft.js'))
-				->appendFile($this->basePath($themePath . 'js/plugins/noty/layouts/topRight.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins/noty/layouts/topRight.js'))	
 				->appendFile($this->basePath($themePath . 'js/plugins/noty/themes/default.js'))
 
 				->appendFile($this->basePath($themePath . 'js/plugins/fancybox/jquery.fancybox.pack.js'))
@@ -53,7 +53,7 @@
 				->appendFile($this->basePath($themePath . 'js/plugins/knob/jquery.knob.js'))
 
 				->appendFile($this->basePath($themePath . 'js/plugins/flot/jquery.flot.js'))
-				->appendFile($this->basePath($themePath . 'js/plugins/flot/jquery.flot.pie.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins/flot/jquery.flot.pie.js'))	
 				->appendFile($this->basePath($themePath . 'js/plugins/flot/jquery.flot.resize.js'))
 				->appendFile($this->basePath($themePath . 'js/plugins/sparkline/jquery.sparkline.min.js'))
 
@@ -91,9 +91,9 @@
 
 				->appendFile($this->basePath($themePath . 'js/plugins/elfinder/elfinder.min.js'))
 
-				->appendFile($this->basePath($themePath . 'js/plugins/filetree/jqueryFileTree.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins/filetree/jqueryFileTree.js'))	
 
-				->appendFile($this->basePath($themePath . 'js/plugins/tinymce/tinymce.min.js'))    
+				->appendFile($this->basePath($themePath . 'js/plugins/tinymce/tinymce.min.js'))	
 
 				->appendFile($this->basePath($themePath . "js/plugins.js"))
 				->appendFile($this->basePath($themePath . "js/actions.js"))
@@ -101,70 +101,69 @@
 				//->appendFile($this->basePath($themePath . "js/charts.js"))
 				//->appendFile($this->basePath($themePath . "js/maps.js"))
 				//->appendFile($this->basePath($themePath . "js/settings.js"))
-        	;
+			;
 
-        	echo $this->headScript();
-        ?>
-    </head>
-    <body>
+			echo $this->headScript();
+		?>
+	</head>
+	<body>
 		<div class="container">
-	    	<div class="row">                   
-			    <div class="col-md-12">
-			    	<nav class="navbar brb" role="navigation">
-		                <div class="navbar-header">
-		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                        <span class="icon-bar"></span>
-		                    </button>
-		                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" alt="MyApplication" />&nbsp;<?php echo $this->translate('MyApplication') ?></a>
-		                </div>
+			<div class="row">					
+				<div class="col-md-12">
+					<nav class="navbar brb" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-reorder"></span>
+							</button>
+							<a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" alt="MyApplication" />&nbsp;<?php echo $this->translate('MyApplication') ?></a>
+						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
-						    <?php
-						    	$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
-						    	$this->navigation('navigation')
-						              ->menu()
-						              //->setMinDepth(0)
-						              //->setMaxDepth(0)
-						              ->setPartial($topNavPartial)
-						              ->setUlClass('nav navbar-nav')
-						    	;
-						    	echo $this->navigation('navigation')
-						    		->menu()
-						    		->render();
-						    ?>
+							<?php
+								$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
+								$this->navigation('navigation')
+									  ->menu()
+									  //->setMinDepth(0)
+									  //->setMaxDepth(0)
+									  ->setPartial($topNavPartial)
+									  ->setUlClass('nav navbar-nav')
+								;
+								echo $this->navigation('navigation')
+									->menu()
+									->render();
+							?>
 						</div> 
-			        </nav>
+					</nav>
 				</div>
 			</div>
 			<div class="page-container"><!-- page container -->
 				<div class="page-sidebar"><!-- side bar -->
 					<!-- place for navigation -->
-				    <?php
-				    	echo $this->navigation('navigation')
-				              ->menu()
-				              //->setMinDepth(0)
-				              //->setMaxDepth(0)
-				              ->setUlClass('page-navigation')
-				              ->renderMenu()
-				    	;
-				    ?>
+					<?php
+						echo $this->navigation('navigation')
+							  ->menu()
+							  //->setMinDepth(0)
+							  //->setMaxDepth(0)
+							  ->setUlClass('page-navigation')
+							  ->renderMenu()
+						;
+					?>
 				</div>
-				<div class="page-content"><!-- page content wrapper -->               
+				<div class="page-content"><!-- page content wrapper -->				
 					<div class="block">
-					    <div class="header"><!-- or head(more customisable) -->
-					        <h2>Title</h2>                        
-					    </div>                   
-					    <div class="toolbar">
-					        <p>Toolbar</p>
-					    </div>                     
-					    <div class="content">
+						<div class="header"><!-- or head(more customisable) -->
+							<h2>Title</h2>						
+						</div>					
+						<div class="toolbar">
+							<p>Toolbar</p>
+						</div>					 
+						<div class="content">
 							<?php
-						    	echo $this->navigation('navigation')
-						              ->breadcrumbs()
-						              ->setMinDepth(0)
-						              ->setPartial('partial/breadcrumb.phtml');
-						    
+								echo $this->navigation('navigation')
+									  ->breadcrumbs()
+									  ->setMinDepth(0)
+									  ->setPartial('partial/breadcrumb.phtml');
+							
 								echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
 								echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
 								echo $this->flashMessenger()->render('success', array('success alert flashmessages'));
@@ -172,25 +171,25 @@
 							
 								echo $this->content;
 							?>
-					    </div>
-					    <div class="footer">
-				            <footer>
-				                <p>
-				                	<span class="copyright">&copy; <?php echo date('Y') ?> by <a href="//dragon-projects.net" target="_blank">[dragon-projects.net]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
-				                	<span class="poweredby">
-				                		Powered by &nbsp;
-				                		<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
-				                		<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
-				                		<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
-				                		<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
-				                	</span>
-				                </p>
-				            </footer>
-					    </div>
+						</div>
+						<div class="footer">
+							<footer>
+								<p>
+									<span class="copyright">&copy; <?php echo date('Y') ?> by <a href="//dragon-projects.net" target="_blank">[dragon-projects.net]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
+									<span class="poweredby">
+										Powered by &nbsp;
+										<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
+										<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
+										<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
+										<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
+									</span>
+								</p>
+							</footer>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div> <!-- /container -->
-        <?php echo $this->inlineScript() ?>
-    </body>
+		<?php echo $this->inlineScript() ?>
+	</body>
 </html>

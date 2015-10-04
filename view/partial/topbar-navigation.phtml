@@ -7,9 +7,12 @@ foreach ($this->container as $page):
 		if ($page->isActive()) { $classnames[] = $this->navigation()->menu()->getLiActiveClass(); }
 		
 		$html .= '<li class="'.(implode(" ", $classnames)).'">';
-		$html .= '<a href="'.$page->getHref().'">'.$page->getLabel().'</a>';
+		$html .= '<a href="'.$page->getHref().'">'.
+			($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ).
+			$page->getLabel().
+		'</a>';
 		
-		if (!empty($page->pages))	
+		if (!empty($page->pages)):
 			$html .= '<ul class="dropdown-menu">';
 			foreach ($page->pages as $subpage):
 				if ($this->navigation()->accept($page)):
