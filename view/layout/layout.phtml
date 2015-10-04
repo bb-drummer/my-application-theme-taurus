@@ -98,53 +98,53 @@
 				->appendFile($this->basePath($themePath . "js/plugins.js"))
 				->appendFile($this->basePath($themePath . "js/actions.js"))
 
-				->appendFile($this->basePath($themePath . "js/charts.js"))
-				->appendFile($this->basePath($themePath . "js/maps.js"))
-				->appendFile($this->basePath($themePath . "js/settings.js"))
+				//->appendFile($this->basePath($themePath . "js/charts.js"))
+				//->appendFile($this->basePath($themePath . "js/maps.js"))
+				//->appendFile($this->basePath($themePath . "js/settings.js"))
         	;
 
         	echo $this->headScript();
         ?>
     </head>
     <body>
-		<div class="row">                   
-		    <div class="col-md-12">
-		    	<nav class="navbar brb" role="navigation">
-	                <div class="navbar-header">
-	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                        <span class="icon-bar"></span>
-	                        <span class="icon-bar"></span>
-	                        <span class="icon-bar"></span>
-	                    </button>
-	                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" alt="MyApplication" />&nbsp;<?php echo $this->translate('MyApplication') ?></a>
-	                </div>
-					<div class="collapse navbar-collapse">
-					    <?php
-					    	echo $this->navigation('navigation')
-					              ->menu()
-					              //->setMinDepth(0)
-					              //->setMaxDepth(0)
-					              ->setUlClass('nav navbar-nav dropdown-menu')
-					    	;
-					    ?>
-					</div> 
-		        </nav>
+		<div class="container">
+	    	<div class="row">                   
+			    <div class="col-md-12">
+			    	<nav class="navbar brb" role="navigation">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" alt="MyApplication" />&nbsp;<?php echo $this->translate('MyApplication') ?></a>
+		                </div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse">
+						    <?php
+						    	echo $this->navigation('navigation')
+						              ->menu()
+						              //->setMinDepth(0)
+						              //->setMaxDepth(0)
+						              ->setUlClass('nav navbar-nav dropdown-menu')
+						    	;
+						    ?>
+						</div> 
+			        </nav>
+				</div>
 			</div>
-		</div>
-		<div class="page-container"><!-- page container -->
-			<div class="page-sidebar"><!-- side bar -->
-				<!-- place for navigation -->
-			    <?php
-			    	echo $this->navigation('navigation')
-			              ->menu()
-			              //->setMinDepth(0)
-			              //->setMaxDepth(0)
-			              ->setUlClass('page-navigation')
-			    	;
-			    ?>
-			</div>
-			<div class="page-content"><!-- page content wrapper -->               
-				<div class="container">
+			<div class="page-container"><!-- page container -->
+				<div class="page-sidebar"><!-- side bar -->
+					<!-- place for navigation -->
+				    <?php
+				    	echo $this->navigation('navigation')
+				              ->menu()
+				              //->setMinDepth(0)
+				              //->setMaxDepth(0)
+				              ->setUlClass('page-navigation')
+				    	;
+				    ?>
+				</div>
+				<div class="page-content"><!-- page content wrapper -->               
 					<div class="block">
 					    <div class="header"><!-- or head(more customisable) -->
 					        <h2>Title</h2>                        
@@ -182,9 +182,9 @@
 				            </footer>
 					    </div>
 					</div>
-		        </div> <!-- /container -->
+				</div>
 			</div>
-		</div>
+		</div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
     </body>
 </html>
