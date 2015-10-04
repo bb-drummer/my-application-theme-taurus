@@ -106,7 +106,7 @@
 			echo $this->headScript();
 		?>
 	</head>
-	<body class="bg-img-num1" data-settings="open">
+	<body class="no-style" data-settings="close">
 		<div class="container">
 			<div class="row">					
 				<div class="col-md-12">
@@ -130,65 +130,99 @@
 								;
 								echo $this->navigation('navigation')
 									->menu()
-									->render();
+									//->render()
+								;
 							?>
 						</div> 
 					</nav>
 				</div>
 			</div>
-			<div class="page-container"><!-- page container -->
-				<div class="page-sidebar"><!-- side bar -->
-					<!-- place for navigation -->
-					<?php
+			
+			<div id="panel-breadcrumbs" class="row">					
+				<div class="col-md-12">
+					<?php 
 						echo $this->navigation('navigation')
-							  ->menu()
-							  //->setMinDepth(0)
-							  //->setMaxDepth(0)
-							  ->setUlClass('page-navigation')
-							  ->renderMenu()
-						;
+							  ->breadcrumbs()
+							  ->setMinDepth(0)
+							  ->setPartial('partial/breadcrumb.phtml')
+						; 
 					?>
 				</div>
-				<div class="page-content"><!-- page content wrapper -->				
-					<div class="block">
-						<div class="header"><!-- or head(more customisable) -->
-							<h2>Title</h2>						
-						</div>					
-						<div class="toolbar">
-							<p>Toolbar</p>
-						</div>					 
-						<div class="content">
-							<?php
-								echo $this->navigation('navigation')
-									  ->breadcrumbs()
-									  ->setMinDepth(0)
-									  ->setPartial('partial/breadcrumb.phtml');
-							
-								echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
-								echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
-								echo $this->flashMessenger()->render('success', array('success alert flashmessages'));
-								echo $this->flashMessenger()->render('info', array('info alert flashmessages'));
-							
-								echo $this->content;
-							?>
-						</div>
-						<div class="footer">
-							<footer>
-								<p>
-									<span class="copyright">&copy; <?php echo date('Y') ?> by <a href="//dragon-projects.net" target="_blank">[dragon-projects.net]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
-									<span class="poweredby">
-										Powered by &nbsp;
-										<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
-										<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
-										<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
-										<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
-									</span>
-								</p>
-							</footer>
-						</div>
-					</div>
+			</div>
+			
+			<div id="panel-messages" class="row">					
+				<div class="col-md-12">		
+					<?php
+						echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
+						echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
+						echo $this->flashMessenger()->render('success', array('success alert flashmessages'));
+						echo $this->flashMessenger()->render('info', array('info alert flashmessages'));
+					?>
 				</div>
 			</div>
+			
+			<div id="panel-page" class="page-container"><!-- page container -->
+			
+				<div class="row">
+							
+					<div class="col-md-2">
+						<div class="page-sidebar"><!-- side bar -->
+							<!-- place for navigation -->
+							<?php
+							$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
+							$this->navigation('navigation')
+								  ->menu()
+								  //->setMinDepth(0)
+								  //->setMaxDepth(0)
+								  ->setPartial($sideNavPartial)
+								  ->setUlClass('page-navigation')
+							;
+							echo $this->navigation('navigation')
+								->menu()
+								->render()
+							;
+							echo $this->navigation('navigation')
+									  ->menu()
+									  //->setMinDepth(0)
+									  //->setMaxDepth(0)
+									  ->setUlClass('page-navigation')
+									  ->renderMenu()
+								;
+							?>
+						</div>
+					</div>
+					
+					<div class="col-md-10">
+					
+						<div class="page-content"><!-- page content wrapper -->				
+							<div class="block">	 
+								<div class="content">
+									<?php
+										echo $this->content;
+									?>
+								</div>
+								<div class="footer">
+									<footer>
+										<p>
+											<span class="copyright">&copy; <?php echo date('Y') ?> by <a href="//dragon-projects.net" target="_blank">[dragon-projects.net]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
+											<span class="poweredby">
+												Powered by &nbsp;
+												<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
+												<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
+												<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
+												<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
+											</span>
+										</p>
+									</footer>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div> <!-- /page-container -->
+			
 		</div> <!-- /container -->
 		<?php echo $this->inlineScript() ?>
 	</body>
