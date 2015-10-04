@@ -121,12 +121,17 @@
 		                </div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 						    <?php
+						    	$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
 						    	echo $this->navigation('navigation')
 						              ->menu()
 						              //->setMinDepth(0)
 						              //->setMaxDepth(0)
-						              ->setUlClass('nav navbar-nav dropdown-menu')
+						              ->setPartial($topNavPartial)
+						              ->setUlClass('nav navbar-nav')
 						    	;
+						    	echo $this->navigation('navigation')
+						    		->menu()
+						    		->render();
 						    ?>
 						</div> 
 			        </nav>
