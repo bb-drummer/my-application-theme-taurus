@@ -6,9 +6,11 @@
 				<?php if(!empty($page->pages)): ?>		
 					<ul class="dropdown-menu">
 						<?php foreach ($page->pages as $subpage): ?>
-							<li class="<?php echo ($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : ''); ?>">
-								<a href="<?php echo $subpage->getHref(); ?>"><?php echo $subpage->getLabel(); ?></a>
-							</li>
+							<?php if ($this->navigation()->accept($page)): ?>
+								<li class="<?php echo ($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : ''); ?>">
+									<a href="<?php echo $subpage->getHref(); ?>"><?php echo $subpage->getLabel(); ?></a>
+								</li>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</ul>	
 				<?php endif; ?>
@@ -18,7 +20,7 @@
 	<?php
     foreach ($this->container as $page) {
         if ($this->navigation()->accept($page)) {
-        	echo $this->navigation()->menu()->htmlify($page) . PHP_EOL;
+        	//echo $this->navigation()->menu()->htmlify($page) . PHP_EOL;
         }
     }
     ?>
