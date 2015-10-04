@@ -1,27 +1,29 @@
-<ul class"<?php echo $this->navigation()->menu()->getUlClass(); ?>">
-	<?php foreach ($this->container as $page): ?>
-		<?php if ($this->navigation()->accept($page)): ?>
-			<li class="<?php echo (!empty($page->pages) ? ' dropdown' : ''); ?><?php echo ($page->isActive() ? ' '.$this->navigation()->menu()->getLiActiveClass().'' : ''); ?>">
-				<a href="<?php echo $page->getHref(); ?>"><?php echo $page->getLabel(); ?></a>
-				<?php if(!empty($page->pages)): ?>		
-					<ul class="dropdown-menu">
-						<?php foreach ($page->pages as $subpage): ?>
-							<?php if ($this->navigation()->accept($page)): ?>
-								<li class="<?php echo ($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : ''); ?>">
-									<a href="<?php echo $subpage->getHref(); ?>"><?php echo $subpage->getLabel(); ?></a>
-								</li>
-							<?php endif; ?>
-						<?php endforeach; ?>
-					</ul>	
-				<?php endif; ?>
-			</li>
-		<?php endif; ?>
-	<?php endforeach; ?>
-	<?php
-    foreach ($this->container as $page) {
-        if ($this->navigation()->accept($page)) {
-        	//echo $this->navigation()->menu()->htmlify($page) . PHP_EOL;
-        }
-    }
-    ?>
-</ul>
+<?php 
+$html = '<ul class"'.$this->navigation()->menu()->getUlClass().'">';
+foreach ($this->container as $page):
+	if ($this->navigation()->accept($page)):
+		$classnames = array();
+		if (!empty($page->pages)) { $classnames[] = 'dropdown'; }
+		if ($page->isActive()) { $classnames[] = $this->navigation()->menu()->getLiActiveClass(); }
+		
+		$html .= '<li class="'.(implode(" ", $classnames)).'">';
+		$html .= '<a href="'.$page->getHref().'">'.$page->getLabel().'</a>';
+		
+		if (!empty($page->pages))	
+			$html .= '<ul class="dropdown-menu">';
+			foreach ($page->pages as $subpage):
+				if ($this->navigation()->accept($page)):
+					$html .= '<li class="'.($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">';
+					$html .= '<a href="'.$subpage->getHref().'">'.$subpage->getLabel().'</a>';
+					$html .= '</li>';
+				endif;
+			endforeach;
+			$html .= '</ul>	';
+		endif;
+		
+		$html .= '</li>';
+	endif;
+endforeach;
+$html .= '</ul>';
+
+echo $html;
