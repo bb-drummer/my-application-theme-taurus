@@ -1,25 +1,25 @@
-<?php 
+<?php
 $html = '<ul class="'.$this->navigation()->menu()->getUlClass().'">' . PHP_EOL;
 foreach ($this->container as $page):
 	if ($this->navigation()->accept($page)):
 		$classnames = array();
-		if (!empty($page->pages)) { $classnames[] = 'dropdown'; }
+		if (!empty($page->pages)) { $classnames[] = 'hasSub'; }
 		if ($page->isActive()) { $classnames[] = $this->navigation()->menu()->getLiActiveClass(); }
 		
 		$html .= '<li class="'.(implode(" ", $classnames)).'">';
 		if (!empty($page->pages)) {
-			$html .= '<a class="dropdown-toggle" data-toggle="dropdown" href="'.$page->getHref().'">' . PHP_EOL .
-				($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
-				$page->getLabel().
+			$html .= '<a class="hasSub-toggle" data-toggle="hasSub" href="'.$page->getHref().'">' . PHP_EOL .
+			($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
+			$page->getLabel().
 			'</a>' . PHP_EOL;
 		} else {
 			$html .= '<a href="'.$page->getHref().'">' . PHP_EOL .
-				($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
-				$page->getLabel().
+			($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
+			$page->getLabel().
 			'</a>' . PHP_EOL;
 		}
 		if (!empty($page->pages)):
-			$html .= '<ul class="dropdown-menu">' . PHP_EOL;
+			$html .= '<ul class="hasSub-submenu">' . PHP_EOL;
 			foreach ($page->pages as $subpage):
 				if ($this->navigation()->accept($page)):
 					$html .= '<li class="'.($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">' . PHP_EOL;

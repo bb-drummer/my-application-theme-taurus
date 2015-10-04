@@ -174,7 +174,6 @@
 							<div class="content">
 								<!-- place for navigation -->
 								<?php
-								echo '<pre>'.print_r($this->container->getIterator()->first(), true).'</pre>';
 								$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
 								$this->navigation('navigation')
 									  ->menu()
@@ -182,6 +181,7 @@
 									  //->setMaxDepth(0)
 									  ->setPartial($sideNavPartial)
 									  ->setUlClass('page-navigation')
+									  ->setOnlyActiveBranch()
 								;
 								echo $this->navigation('navigation')
 									->menu()
