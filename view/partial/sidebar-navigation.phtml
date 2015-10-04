@@ -3,10 +3,11 @@ $ulClass = $this->navigation()->menu()->getUlClass();
 $activeClass = $this->navigation()->menu()->getLiActiveClass();
 
 $itemActive = $this->container->getPages();
+$html = '';
 foreach ($this->container as $item) {
-	if ($item->isActive(true)) {
+	if ($item->isActive(true) && $item->getPages()) {
 		$itemActive = $item->getPages();
-		$html = '<ul class="'.$ulClass.'">' . PHP_EOL;
+		$html .= '<ul class="'.$ulClass.'">' . PHP_EOL;
 		$html .= '<li class="'.$activeClass.'">';
 		$html .= '<a href="'.$item->getHref().'">' . PHP_EOL .
 			($item->get('icon') ? '<span class="icon-'.$item->get('icon').'"></span> ' : '' ) . PHP_EOL .
@@ -41,7 +42,7 @@ foreach ($itemActive as $page):
 		if (!empty($page->pages)):
 			$html .= '<ul class="hasSub-submenu">' . PHP_EOL;
 			foreach ($page->pages as $subpage):
-				if ($this->navigation()->accept($page)):
+				if ($this->navigation()->accept($subpage)):
 					$html .= '<li class="'.($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">' . PHP_EOL;
 					$html .= '<a href="'.$subpage->getHref().'">'.$subpage->getLabel().'</a>' . PHP_EOL;
 					$html .= '</li>' . PHP_EOL;

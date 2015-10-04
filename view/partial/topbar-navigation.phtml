@@ -21,7 +21,7 @@ foreach ($this->container as $page):
 		if (!empty($page->pages)):
 			$html .= '<ul class="dropdown-menu">' . PHP_EOL;
 			foreach ($page->pages as $subpage):
-				if ($this->navigation()->accept($page)):
+				if ($this->navigation()->accept($subpage)):
 					$html .= '<li class="'.($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">' . PHP_EOL;
 					$html .= '<a href="'.$subpage->getHref().'">'.$subpage->getLabel().'</a>' . PHP_EOL;
 					$html .= '</li>' . PHP_EOL;
