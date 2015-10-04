@@ -1,5 +1,5 @@
 <?php 
-$html = '<ul class"'.$this->navigation()->menu()->getUlClass().'">' . PHP_EOL;
+$html = '<ul class="'.$this->navigation()->menu()->getUlClass().'">' . PHP_EOL;
 foreach ($this->container as $page):
 	if ($this->navigation()->accept($page)):
 		$classnames = array();
