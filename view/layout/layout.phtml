@@ -122,7 +122,7 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 						    <?php
 						    	$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
-						    	echo $this->navigation('navigation')
+						    	$this->navigation('navigation')
 						              ->menu()
 						              //->setMinDepth(0)
 						              //->setMaxDepth(0)
@@ -146,6 +146,7 @@
 				              //->setMinDepth(0)
 				              //->setMaxDepth(0)
 				              ->setUlClass('page-navigation')
+				              ->renderNormalMenu()
 				    	;
 				    ?>
 				</div>
