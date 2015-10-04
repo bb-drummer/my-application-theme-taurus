@@ -166,30 +166,30 @@
 				<div class="row">
 							
 					<div class="col-md-2">
-						<div class="block"><div class="content"><!-- side bar -->
-							<!-- place for navigation -->
-							<?php
-							$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
-							$this->navigation('navigation')
-								  ->menu()
-								  //->setMinDepth(0)
-								  //->setMaxDepth(0)
-								  ->setPartial($sideNavPartial)
-								  ->setUlClass('page-navigation')
-							;
-							echo $this->navigation('navigation')
-								->menu()
-								->render()
-							;
-							echo $this->navigation('navigation')
+						<div class="block"><!-- side bar -->
+							<div class="header">
+								<!-- place for user info -->
+							</div>
+							
+							<div class="content">
+								<!-- place for navigation -->
+								<?php
+								echo '<pre>'.print_r($this->container->getIterator()->first(), true).'</pre>';
+								$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
+								$this->navigation('navigation')
 									  ->menu()
 									  //->setMinDepth(0)
 									  //->setMaxDepth(0)
+									  ->setPartial($sideNavPartial)
 									  ->setUlClass('page-navigation')
-									  ->renderMenu()
 								;
-							?>
-						</div></div>
+								echo $this->navigation('navigation')
+									->menu()
+									->render()
+								;
+								?>
+							</div>
+						</div>
 					</div>
 					
 					<div class="col-md-10">
