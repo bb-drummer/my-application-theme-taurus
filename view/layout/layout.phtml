@@ -190,7 +190,7 @@
 								$ulClass = 'nav';
 								$activeClass = $oTwitterBootstrap->Navbar()->getLiActiveClass();
 								
-								$container = $oTwitterBootstrap->Navbar()->getContainer(); // $this->navigation()->menu()->getContainer(); // 
+								$container = $oTwitterBootstrap->Navbar('navigation')->getContainer(); // $this->navigation()->menu()->getContainer(); // 
 								$itemActive = $container; //->getPages();
 								$html = '';
 								foreach ($container->getPages() as $item) {
