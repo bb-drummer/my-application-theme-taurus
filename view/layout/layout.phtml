@@ -135,8 +135,9 @@
 								$oTwitterBootstrap = $this->bootstrap();
 								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 									->setUlClass('nav navbar-nav')
+					  				->setIconPrefixClass('icon-')
 									->setMinDepth(0)
-									->setMaxDepth(2)
+									->setMaxDepth(0)
 								;
 								echo $oNavBar->render();
 							?>
@@ -193,7 +194,7 @@
 							<div class="content">
 								<!-- place for navigation -->
 								<?php
-								$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
+								/*$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
 								$this->navigation('navigation')
 									  ->menu()
 									  //->setMinDepth(0)
@@ -205,7 +206,37 @@
 								echo $this->navigation('navigation')
 									->menu()
 									->render()
+								;*/
+								$ulClass = $this->navigation()->menu()->getUlClass();
+								$activeClass = $this->navigation()->menu()->getLiActiveClass();
+								
+								$itemActive = $this->container->getPages();
+								$html = '';
+								foreach ($this->container as $item) {
+									if ($item->isActive(true) && $item->getPages()) {
+										$itemActive = $item->getPages();
+										$html .= '<ul class="'.$ulClass.'">' . PHP_EOL;
+										$html .= '<li class="'.$activeClass.'">';
+										$html .= '<a href="'.$item->getHref().'">' . PHP_EOL .
+											($item->get('icon') ? '<span class="icon-'.$item->get('icon').'"></span> ' : '' ) . PHP_EOL .
+											$item->getLabel().
+										'</a>' . PHP_EOL;
+										$html .= '</li>' . PHP_EOL;
+										$html .= '</ul>' . PHP_EOL;
+										break;
+									}
+								}
+								echo $html;
+								
+								//$oTwitterBootstrap = $this->bootstrap();
+								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
+									->setUlClass('page-navigation')
+					  				->setIconPrefixClass('icon-')
+									->setMinDepth(0)
+									->setMaxDepth(1)
+									//->setOnlyActiveBranch()
 								;
+								echo $oNavBar->render();
 								?>
 							</div>
 						</div>
