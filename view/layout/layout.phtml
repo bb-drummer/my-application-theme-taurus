@@ -122,11 +122,11 @@
 							<?php
 								/*$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
 								$this->navigation('navigation')
-									  ->menu()
-									  //->setMinDepth(0)
-									  //->setMaxDepth(0)
-									  ->setPartial($topNavPartial)
-									  ->setUlClass('nav navbar-nav')
+										->menu()
+										//->setMinDepth(0)
+										//->setMaxDepth(0)
+										->setPartial($topNavPartial)
+										->setUlClass('nav navbar-nav')
 								;
 								echo $this->navigation('navigation')
 									->menu()
@@ -135,9 +135,14 @@
 								$oTwitterBootstrap = $this->bootstrap();
 								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 									->setUlClass('nav navbar-nav')
-					  				->setIconPrefixClass('icon-')
+										->setIconPrefixClass('icon-')
 									->setMinDepth(0)
-									->setMaxDepth(0)
+									->setMaxDepth(2)
+									->setDefaultLiClass('')
+									->setSubLiClass('')
+										->setSubUlClass('dropdown-submenu')
+										->setSubUlClassLevel1('dropdown-menu')
+										//->setHrefSubToggleOverride('javascript:void(0);')
 								;
 								echo $oNavBar->render();
 							?>
@@ -150,9 +155,9 @@
 				<div class="col-md-12">
 					<?php 
 						echo $this->navigation('navigation')
-							  ->breadcrumbs()
-							  ->setMinDepth(0)
-							  ->setPartial('partial/breadcrumb.phtml')
+								->breadcrumbs()
+								->setMinDepth(0)
+								->setPartial('partial/breadcrumb.phtml')
 						; 
 					?>
 				</div>
@@ -178,30 +183,30 @@
 							
 							<?php if ($this->zfcUserIdentity()) { ?>
 							<div class="user bg-default bg-light-rtl">
-		                        <div class="info">                                                                                
-		                            <span href="#" class="informer informer-three">
-		                                <span>date:</span>
-		                                <?php echo date("Y-m-d"); ?>
-		                            </span>                           
-		                            <span href="#" class="informer informer-four">
-		                                <span>user:</span>
-		                                <?php echo $this->zfcUserDisplayName() ?>
-		                            </span>                                                        
-		                            <?php echo $this->gravatar($this->zfcUserIdentity()->getEmail(), null, array('class' => "img-circle img-thumbnail")); ?>
-		                        </div>
-		                    </div>
-		                    <?php } ?>					
+								<div class="info">																				
+									<span href="#" class="informer informer-three">
+										<span>date:</span>
+										<?php echo date("Y-m-d"); ?>
+									</span>							
+									<span href="#" class="informer informer-four">
+										<span>user:</span>
+										<?php echo $this->zfcUserDisplayName() ?>
+									</span>														
+									<?php echo $this->gravatar($this->zfcUserIdentity()->getEmail(), null, array('class' => "img-circle img-thumbnail")); ?>
+								</div>
+							</div>
+							<?php } ?>					
 							<div class="content">
 								<!-- place for navigation -->
 								<?php
 								/*$sideNavPartial = array('partial/sidebar-navigation.phtml', 'default');
 								$this->navigation('navigation')
-									  ->menu()
-									  //->setMinDepth(0)
-									  //->setMaxDepth(0)
-									  ->setPartial($sideNavPartial)
-									  ->setUlClass('page-navigation')
-									  //->setOnlyActiveBranch()
+										->menu()
+										//->setMinDepth(0)
+										//->setMaxDepth(0)
+										->setPartial($sideNavPartial)
+										->setUlClass('page-navigation')
+										//->setOnlyActiveBranch()
 								;
 								echo $this->navigation('navigation')
 									->menu()
@@ -209,12 +214,16 @@
 								;*/
 								$ulClass = $this->navigation()->menu()->getUlClass();
 								$activeClass = $this->navigation()->menu()->getLiActiveClass();
-								$container = $this->navigation()->menu()->getContainer();
-								$itemActive = $container->getPages();
+								
+								//$ulClass = $oTwitterBootstrap->Navbar()->getUlClass();
+								//$activeClass = $oTwitterBootstrap->Navbar()->getLiActiveClass();
+								
+								$container = $this->navigation()->menu()->getContainer(); // $oTwitterBootstrap->Navbar()->getContainer(); // 
+								$itemActive = $container; //->getPages();
 								$html = '';
-								foreach ($container as $item) {
+								foreach ($container->getPages() as $item) {
 									if ($item->isActive(true) && $item->getPages()) {
-										$itemActive = $item->getPages();
+										$itemActive = $item; //->getPages();
 										$html .= '<ul class="'.$ulClass.'">' . PHP_EOL;
 										$html .= '<li class="'.$activeClass.'">';
 										$html .= '<a href="'.$item->getHref().'">' . PHP_EOL .
@@ -229,12 +238,20 @@
 								echo $html;
 								
 								//$oTwitterBootstrap = $this->bootstrap();
-								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
+								//echo '<!-- '. ($itemActive) .' -->';
+								$oNavBar = $oTwitterBootstrap->Navbar($itemActive)
 									->setUlClass('page-navigation')
-					  				->setIconPrefixClass('icon-')
+									->setIconPrefixClass('icon-')
 									->setMinDepth(0)
 									->setMaxDepth(1)
 									//->setOnlyActiveBranch()
+									->setUlClass('nav')
+									->setSubUlClass('')
+									->setSubUlClassLevel1('')
+									->setDefaultLiClass('')
+									->setSubLiClass('')
+									->setSubLiClassLevel0('')
+									->setLiActiveClass('active')
 								;
 								echo $oNavBar->render();
 								?>
