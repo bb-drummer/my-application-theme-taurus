@@ -209,10 +209,10 @@
 								;*/
 								$ulClass = $this->navigation()->menu()->getUlClass();
 								$activeClass = $this->navigation()->menu()->getLiActiveClass();
-								
-								$itemActive = $this->container->getPages();
+								$container = $this->navigation()->menu()->getContainer();
+								$itemActive = $container->getPages();
 								$html = '';
-								foreach ($this->container as $item) {
+								foreach ($container as $item) {
 									if ($item->isActive(true) && $item->getPages()) {
 										$itemActive = $item->getPages();
 										$html .= '<ul class="'.$ulClass.'">' . PHP_EOL;
