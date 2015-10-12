@@ -120,29 +120,17 @@
 						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<?php
-								/*$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
-								$this->navigation('navigation')
-										->menu()
-										//->setMinDepth(0)
-										//->setMaxDepth(0)
-										->setPartial($topNavPartial)
-										->setUlClass('nav navbar-nav')
-								;
-								echo $this->navigation('navigation')
-									->menu()
-									//->render()
-								;*/
 								$oTwitterBootstrap = $this->bootstrap();
 								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 									->setUlClass('nav navbar-nav')
-										->setIconPrefixClass('icon-')
+									->setIconPrefixClass('icon-')
 									->setMinDepth(0)
 									->setMaxDepth(2)
 									->setDefaultLiClass('')
 									->setSubLiClass('')
-										->setSubUlClass('dropdown-submenu')
-										->setSubUlClassLevel1('dropdown-menu')
-										//->setHrefSubToggleOverride('javascript:void(0);')
+									->setSubUlClass('dropdown-submenu')
+									->setSubUlClassLevel1('dropdown-menu')
+									//->setHrefSubToggleOverride('javascript:void(0);')
 								;
 								echo $oNavBar->render();
 							?>
@@ -154,11 +142,11 @@
 			<div id="panel-breadcrumbs" class="row">					
 				<div class="col-md-12">
 					<?php 
-						echo $this->navigation('navigation')
-								->breadcrumbs()
-								->setMinDepth(0)
-								->setPartial('partial/breadcrumb.phtml')
-						; 
+						$oBreadcrumbs = $oTwitterBootstrap->Breadcrumbs('navigation')
+							->setHeader( $this->translate('Du bist hier') )
+							->setMinDepth(0)
+						;
+						echo $oBreadcrumbs->render(); 
 					?>
 				</div>
 			</div>
@@ -212,13 +200,13 @@
 									->menu()
 									->render()
 								;*/
-								$ulClass = $this->navigation()->menu()->getUlClass();
-								$activeClass = $this->navigation()->menu()->getLiActiveClass();
+								$ulClass = 'nav'; // $this->navigation()->menu()->getUlClass();
+								//$activeClass = $this->navigation()->menu()->getLiActiveClass();
 								
 								//$ulClass = $oTwitterBootstrap->Navbar()->getUlClass();
-								//$activeClass = $oTwitterBootstrap->Navbar()->getLiActiveClass();
+								$activeClass = $oTwitterBootstrap->Navbar()->getLiActiveClass();
 								
-								$container = $this->navigation()->menu()->getContainer(); // $oTwitterBootstrap->Navbar()->getContainer(); // 
+								$container = $oTwitterBootstrap->Navbar()->getContainer(); // $this->navigation()->menu()->getContainer(); // 
 								$itemActive = $container; //->getPages();
 								$html = '';
 								foreach ($container->getPages() as $item) {
