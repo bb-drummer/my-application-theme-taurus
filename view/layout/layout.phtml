@@ -20,7 +20,7 @@
 	 			))
 				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'));
 			$cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
-			foreach ($cssfiles as $key => $file) {
+			if (is_array($cssfiles) || ($cssfiles instanceof \Zend\Config\Config)) foreach ($cssfiles as $key => $file) {
 				$this->headLink()->appendStylesheet($this->basePath($file));
 			}
 			echo $this->headLink();
@@ -110,7 +110,7 @@
 				//->appendFile($this->basePath($themePath . "js/settings.js"))
 			;
 			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
-			foreach ($jsfiles as $key => $file) {
+			if (is_array($jsfiles) || ($jsfiles instanceof \Zend\Config\Config)) foreach ($jsfiles as $key => $file) {
 				$this->headScript()->appendFile($this->basePath($file));
 			}
 				
