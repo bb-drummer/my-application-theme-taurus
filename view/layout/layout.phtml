@@ -19,6 +19,10 @@
 					'href' => $this->basePath($themePath . $oTwitterBootstrap->AppFavicon())
 	 			))
 				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'));
+			$cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
+			foreach ($cssfiles as $key => $file) {
+				$this->headLink()->appendStylesheet($this->basePath($file));
+			}
 			echo $this->headLink();
 		?>
 		<!-- scripts -->
@@ -105,7 +109,11 @@
 				//->appendFile($this->basePath($themePath . "js/maps.js"))
 				//->appendFile($this->basePath($themePath . "js/settings.js"))
 			;
-
+			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
+			foreach ($jsfiles as $key => $file) {
+				$this->headScript()->appendFile($this->basePath($file));
+			}
+				
 			echo $this->headScript();
 		?>
 	</head>
