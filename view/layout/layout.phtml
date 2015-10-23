@@ -18,7 +18,9 @@
 					'type' => 'image/vnd.microsoft.icon', 
 					'href' => $this->basePath($themePath . $oTwitterBootstrap->AppFavicon())
 	 			))
-				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'));
+				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'))
+				->appendStylesheet($this->basePath($themePath . 'css/fontawesome/css/fontawesome.min.css'))
+			;
 			$cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
 			if (is_array($cssfiles) || ($cssfiles instanceof \Zend\Config\Config)) foreach ($cssfiles as $key => $file) {
 				$this->headLink()->appendStylesheet($this->basePath($file));
@@ -134,7 +136,8 @@
 								$oTwitterBootstrap = $this->bootstrap();
 								$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 									->setUlClass('nav navbar-nav')
-									->setIconPrefixClass('icon-')
+									//->setIconPrefixClass('icon-')
+									->setIconPrefixClass('fa fa-')
 									->setMinDepth(0)
 									->setMaxDepth(2)
 									->setDefaultLiClass('')
