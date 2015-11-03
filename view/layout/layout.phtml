@@ -148,6 +148,13 @@
 								;
 								echo $oNavBar->render();
 							?>
+							<?php 
+								$oLocaleMenu = $oBootstrapComponents->Languagemenu()
+									->setUlClass('nav navbar-nav navbar-right')
+									->setIconPrefixClass('flag-icon flag-icon-')
+								;
+								echo $oLocaleMenu->render(); 
+							?>
 						</div> 
 					</nav>
 				</div>
