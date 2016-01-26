@@ -8,6 +8,6 @@ you can access the demo:
 
 you can access the documentation: 
 
-[http://static.dragon-projects.net/templates/themeforest/bootstrap-taurus/docs/](http://static.dragon-projects.net/templates/themeforest/bootstrap-taurus/docs/)
+[http://static.dragon-projects.net/templates/themeforest/bootstrap-taurus/Documentation/](http://static.dragon-projects.net/templates/themeforest/bootstrap-taurus/Documentation/)
     
 
