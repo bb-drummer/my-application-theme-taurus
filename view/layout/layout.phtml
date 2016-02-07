@@ -107,12 +107,16 @@
 
 				->appendFile($this->basePath($themePath . 'js/plugins/tinymce/tinymce.min.js'))	
 
+				->appendFile($this->basePath($themePath . 'js/plugins/datatables/jquery.dataTables.min.js'))	
+
 				->appendFile($this->basePath($themePath . "js/plugins.js"))
 				->appendFile($this->basePath($themePath . "js/actions.js"))
 
 				//->appendFile($this->basePath($themePath . "js/charts.js"))
 				//->appendFile($this->basePath($themePath . "js/maps.js"))
 				//->appendFile($this->basePath($themePath . "js/settings.js"))
+			
+				->appendFile($this->basePath($themePath . '../zf2-basic/js/app.js'))
 			;
 			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
 			if (is_array($jsfiles) || ($jsfiles instanceof \Zend\Config\Config)) foreach ($jsfiles as $key => $file) {
