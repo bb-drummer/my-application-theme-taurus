@@ -23,6 +23,7 @@
 	 			))
 				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/fontawesome/css/font-awesome.min.css'))
+				->appendStylesheet($this->basePath($themePath . '../zf2-basic/js/datatables/css/jquery.dataTables.min.css'))
 				->appendStylesheet($this->basePath($themePath . '../zf2-basic/js/datatables/css/dataTables.bootstrap.min.css'))
 			;
 			$cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
