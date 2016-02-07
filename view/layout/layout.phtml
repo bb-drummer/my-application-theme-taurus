@@ -1,6 +1,9 @@
 <?php 
 	echo $this->doctype(); 
+	/** @var \TwitterBootstrapAPI\View\Helper\Bootstrap $oTwitterBootstrap **/
 	$oTwitterBootstrap = $this->bootstrap();
+	/** @var \TwitterBootstrapAPI\View\Helper\Components $oComponents **/
+	$oComponents = $this->Components();
 ?>
 <html lang="en">
 	<head>
@@ -255,7 +258,28 @@
 					
 						<div class="content">
 							<?php
-								echo $this->content;
+								$params = $this->getHelperPluginManager()
+									->getServiceLocator()
+									->get('Application')
+									->getMvcEvent()
+									->getRouteMatch()
+									->getParams();
+								if ($params["action"] == "index") {
+									echo $this->content;
+								} else {
+									$panelLayout = $oComponents->Panel()
+									->setHeader( (isset($this->title) ? $this->title : "") )
+									->setContent(
+											array(
+													'tagname' => 'div',
+													'classnames' => 'panel-body alert-wrap',
+													'content' => $this->content,
+											)
+										)
+									;
+									
+									echo $panelLayout;
+								}
 							?>
 						</div>
 						<div class="footer">
