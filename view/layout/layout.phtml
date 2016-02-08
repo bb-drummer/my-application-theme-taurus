@@ -5,7 +5,7 @@
 	/** @var \TwitterBootstrapAPI\View\Helper\Components $oComponents **/
 	$oComponents = $this->Components();
 ?>
-<html lang="en">
+<html lang="<?php echo \Locale::getPrimaryLanguage(null) ?>">
 	<head>
 		<meta charset="utf-8" />
 		<?php echo $this->headTitle('[BB] '. $this->translate($oTwitterBootstrap->AppTitle()))->setSeparator(' - ')->setAutoEscape(false) ?>
