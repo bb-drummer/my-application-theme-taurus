@@ -1,7 +1,11 @@
 {
   "name" : "themes/zf2-taurus",
   "description" : "Taurus - Responsive Bootstrap3 Admin Template ZF2 integration",
-  "version" : "1.0",
+  "version" : "0.0.1",
+  "require" : {
+    "php" : ">=5.5",
+    "zendframework/zendframework" : "dev-master",
+  },
   "license" : "BSD-3-Clause",
   "keywords" : [ "bootstrap", "theme", "Taurus", "admin", "template" ],
   "extra" : {
