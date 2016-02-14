@@ -15,7 +15,7 @@
 		?>
 		<!-- styles -->
 		<?php 
-			$themePath = "assets/themes/taurus/";
+			$themePath = "themes/taurus/";
 			$this->headLink(array(
 					'rel' => 'shortcut icon', 
 					'type' => 'image/vnd.microsoft.icon', 
@@ -23,8 +23,8 @@
 	 			))
 				->appendStylesheet($this->basePath($themePath . 'css/stylesheets.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/fontawesome/css/font-awesome.min.css'))
-				//->appendStylesheet($this->basePath($themePath . '../zf2-basic/js/datatables/css/jquery.dataTables.min.css'))
-				//->appendStylesheet($this->basePath($themePath . '../zf2-basic/js/datatables/css/dataTables.bootstrap.min.css'))
+				//->appendStylesheet($this->basePath($themePath . '../../basic/assets/js/datatables/css/jquery.dataTables.min.css'))
+				//->appendStylesheet($this->basePath($themePath . '../../basic/assets/js/datatables/css/dataTables.bootstrap.min.css'))
 			;
 			$cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
 			if (is_array($cssfiles) || ($cssfiles instanceof \Zend\Config\Config)) foreach ($cssfiles as $key => $file) {
@@ -109,7 +109,7 @@
 
 				->appendFile($this->basePath($themePath . 'js/plugins/tinymce/tinymce.min.js'))	
 			
-				->appendFile($this->basePath($themePath . '../zf2-basic/js/datatables/js/jquery.dataTables.min.js'))
+				->appendFile($this->basePath($themePath . '../../basic/assets/js/datatables/js/jquery.dataTables.min.js'))
 
 				->appendFile($this->basePath($themePath . "js/plugins.js"))
 				->appendFile($this->basePath($themePath . "js/actions.js"))
@@ -118,7 +118,7 @@
 				//->appendFile($this->basePath($themePath . "js/maps.js"))
 				//->appendFile($this->basePath($themePath . "js/settings.js"))
 			
-				->appendFile($this->basePath($themePath . '../zf2-basic/js/app.js'))
+				->appendFile($this->basePath($themePath . '../../basic/assets/js/app.js'))
 			;
 			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
 			if (is_array($jsfiles) || ($jsfiles instanceof \Zend\Config\Config)) foreach ($jsfiles as $key => $file) {
