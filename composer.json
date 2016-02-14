@@ -10,8 +10,8 @@
   "license" : "BSD-3-Clause",
   "keywords" : [ "bootstrap", "theme", "Taurus", "admin", "template" ],
   "extra" : {
-    "branch-alias" : {
     "installer-name": "taurus",
+    "branch-alias" : {
       "dev-master" : "master"
     }
   },
