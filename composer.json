@@ -1,10 +1,7 @@
 {
-  "name" : "themes/zf2-taurus",
+  "name" : "my-application/zf2-theme-taurus",
   "description" : "Taurus - Responsive Bootstrap3 Admin Template ZF2 integration",
   "version" : "0.0.1",
-  "extra": {
-    "installer-name": "taurus"
-  },
   "require" : {
     "composer/installers": "~1.0",
     "php" : ">=5.5",
@@ -14,6 +11,7 @@
   "keywords" : [ "bootstrap", "theme", "Taurus", "admin", "template" ],
   "extra" : {
     "branch-alias" : {
+    "installer-name": "taurus",
       "dev-master" : "master"
     }
   },
@@ -24,7 +22,7 @@
     "post-update-cmd" : [ ]
   },
   "type" : "zend-extra",
-  "homepage" : "http://git.dragon-projects.de:81/themes/zf2-taurus",
+  "homepage" : "http://git.dragon-projects.de:81/my-application/zf2-theme-taurus",
   "authors" : [ {
     "name" : "Björn Bartels",
     "email" : "bartels@dragon-projects.net",
