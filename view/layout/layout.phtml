@@ -144,7 +144,7 @@
 						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<?php
-								$oNavBar = $oComponents->Navbar('navigation')
+								$oNavBar = $oComponents->Topbar('navigation')
 									->setUlClass('nav navbar-nav')
 									//->setIconPrefixClass('icon-')
 									->setIconPrefixClass('fa fa-')
@@ -219,9 +219,9 @@
 								<!-- place for navigation -->
 								<?php
 								$ulClass = 'nav';
-								$activeClass = $oComponents->Navbar()->getLiActiveClass();
+								$activeClass = $oComponents->Nav()->getLiActiveClass();
 								
-								$container = $oComponents->Navbar('navigation')->getContainer(); // $this->navigation()->menu()->getContainer(); // 
+								$container = $oComponents->Nav('navigation')->getContainer(); // $this->navigation()->menu()->getContainer(); // 
 								$itemActive = $container; //->getPages();
 								$html = '';
 								foreach ($container->getPages() as $item) {
@@ -240,7 +240,7 @@
 								}
 								echo $html;
 								
-								$oNavBar = $oComponents->Navbar($itemActive)
+								$oNavBar = $oComponents->Nav($itemActive)
 									->setUlClass('page-navigation')
 									->setIconPrefixClass('icon-')
 									->setMinDepth(0)
