@@ -144,7 +144,7 @@
 						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<?php
-								$oNavBar = $oComponents->Topbar('navigation')
+								$oNavBar = $oComponents->Topbar()
 									->setUlClass('nav navbar-nav')
 									//->setIconPrefixClass('icon-')
 									->setIconPrefixClass('fa fa-')
@@ -173,7 +173,7 @@
 			<div id="panel-breadcrumbs" class="row">					
 				<div class="col-md-12">
 					<?php 
-						$oBreadcrumbs = $oComponents->Breadcrumbs('navigation')
+						$oBreadcrumbs = $oComponents->Breadcrumbs()
 							->setHeader( $this->translate('you are here :') )
 							->setMinDepth(0)
 						;
@@ -221,12 +221,12 @@
 								$ulClass = 'nav';
 								$activeClass = $oComponents->Nav()->getLiActiveClass();
 								
-								$container = $oComponents->Nav('navigation')->getContainer(); // $this->navigation()->menu()->getContainer(); // 
-								$itemActive = $container; //->getPages();
+								$container = $oComponents->Nav()->getContainer();
+								$itemActive = $container;
 								$html = '';
 								foreach ($container->getPages() as $item) {
 									if ($item->isActive(true) && $item->getPages()) {
-										$itemActive = $item; //->getPages();
+										$itemActive = $item;
 										$html .= '<ul class="'.$ulClass.'">' . PHP_EOL;
 										$html .= '    <li class="'.$activeClass.'">';
 										$html .= '        <a href="'.$item->getHref().'">' . PHP_EOL .
@@ -238,7 +238,8 @@
 										break;
 									}
 								}
-								echo $html;
+								//echo $html;
+								echo $oComponents->Nav()->findActive()->render();
 								
 								$oNavBar = $oComponents->Nav($itemActive)
 									->setUlClass('page-navigation')
